@@ -48,7 +48,18 @@ $bid=$result['@bid'];
 <html>  
    <head>
       <title>Profile Page</title>
-       
+       <style>
+            body{
+            background-image: url('img/main1.jpg');
+            height: 100%; 
+
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+  
+          }
+        </style>
    </head>
    
    <body style="padding-top: 10%">

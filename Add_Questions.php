@@ -2,21 +2,49 @@
 $_POST['inserted']=true;
 ?>
 
+<?php
+    // Start the session
+    //print_r($_SESSION);
+    
+    if(isset($_SESSION["username"]))
+    {//if exists
+        include 'navbarLogged.php';
+    }
+    else
+    {
+    include 'navbarNotLogged.php';}
+ ?>
+
 <html>
    
    <head>
       <title>Add Questions</title>
       
-      
+      <style>
+         body{
+            background-image: url('img/main3.jpg');
+            height: 100%; 
+
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+
+            color: white;
+            font-weight: bold;
+            margin-top: 5%;
+  
+          }
+       </style>
    </head>
    
-   <body  style="padding-top: 3%;  ">
+   <body background="main1.jpg" style="padding-top: 3%;  ">
 
      
 <?php
 if(isset($_POST['A'])& isset($_POST['B'])& isset($_POST['C']) & isset($_POST['QUES']))
 {
-   $con= mysqli_connect("localhost", "root", "0000","interviewes");
+   $con= mysqli_connect("localhost", "root", "root","intreviewss");
        if(!$con)
        {  echo' could not connect';
            die('could not connect: '. mysqli_errno($link));}
@@ -28,8 +56,11 @@ if(isset($_POST['A'])& isset($_POST['B'])& isset($_POST['C']) & isset($_POST['QU
           $ans=$_POST['ANS'];
           $ques=$_POST['QUES'];
           $diff=$_POST['DIFF'];
+          
 
-mysqli_select_db($con, "interviewes");
+
+ 
+mysqli_select_db($con, "intreviewss");
  $call=  mysqli_prepare($con, 'CALL AddQuestion(?,?,?,?,?,?,@ID)');
  mysqli_stmt_bind_param($call, 'sssssi',$A,$B,$C,$ans,$ques,$diff);
  mysqli_stmt_execute($call);
@@ -44,7 +75,7 @@ $call1=  mysqli_prepare($con, 'CALL AddQ_A(?,?,?)');
      
        
 ?>
-       <div align="center">
+       <div align="center" style="font-size: 20px;">
   <form action = "" method = "post">
       <label syle="color:orange;"> Please Insert all of your question required details</label></br>
       <label>Enter the question:</label><br/>
@@ -73,8 +104,8 @@ $call1=  mysqli_prepare($con, 'CALL AddQ_A(?,?,?)');
        <label>Choose branch  :</label>
         <select name='branch' id="branch">
                     <?php
-                    $con= mysqli_connect("localhost", "root", "0000","interviewes");
-                     mysqli_select_db($con, "interviewes");
+                    $con= mysqli_connect("localhost", "root", "root","intreviewss");
+                     mysqli_select_db($con, "intreviewss");
                      if($_SESSION["Priv"]==1)
                      {
                         $result=mysqli_query($con,"select * from branch");
@@ -98,7 +129,7 @@ $call1=  mysqli_prepare($con, 'CALL AddQ_A(?,?,?)');
                    
                  ?> 
             </select> <br/> <br/>
-       <input type="submit"  value="Add">
+       <input type="submit" style="border-radius: 10px; background-color: darkorange; "  value="Add">
            
                </form>	
        </div>

@@ -32,7 +32,7 @@
    
    <body style="padding-top: 3%">
 <?php
-   $con= mysqli_connect("localhost", "root", "0000","interviewes");
+   $con= mysqli_connect("localhost", "root", "root","intreviewss");
        if(!$con)
        {  echo' could not connect';
            die('could not connect: '. mysqli_errno($link));}

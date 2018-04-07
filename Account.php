@@ -2,8 +2,7 @@
     // Start the session
     session_start();
     //print_r($_SESSION);
-     session_unset();
-     $_POST["validate"]=true;
+    
     if(isset($_SESSION["username"]))
     {//if exists
         include 'navbarLogged.php';
@@ -63,6 +62,18 @@
     
     
     </script>
+    <style>
+    body{
+            background-image: url('img/main1.jpg');
+            height: 100%; 
+
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+  
+          }
+        </style>
    </head>
    
    <body style="padding-top: 5%">
@@ -97,7 +108,7 @@
               
               <?php 
               
-              $con= mysqli_connect("localhost", "root", "0000","interviewes");
+              $con= mysqli_connect("localhost", "root", "root","intreviewss");
        if(!$con)
        {  echo' could not connect';
            die('could not connect: '. mysqli_errno($link));}

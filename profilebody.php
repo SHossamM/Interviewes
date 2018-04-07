@@ -10,8 +10,12 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
+        <div align="center" style="font-weight:bold; font-size: 50px;">
        User Name:<?php echo($un); ?><br/>
        Email:<?php echo($em); ?><br/>
        Branch Name:<?php echo($bname); ?><br/>
+
+       <a href="Account.php"><button style="background-color: darkorange; font-size:50px; border-radius: 10px;">Update Profile</button></a>
+        </div>
     </body>
 </html>

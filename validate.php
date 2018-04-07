@@ -1,5 +1,5 @@
  <?php
-   $con= mysqli_connect("localhost", "root", "0000","interviewes");
+   $con= mysqli_connect("localhost", "root", "root","intreviewss");
        if(!$con)
        {  echo' could not connect';
            die('could not connect: '. mysqli_errno($link));}
@@ -11,7 +11,7 @@
            $name='S';
 
          //Select database first before query
-                mysqli_select_db($con, "interviewes");
+                mysqli_select_db($con, "intreviewss");
                 
               //  $result= mysqli_query($con,"select * from account where UserName='".$name."'and Pass='".$pass."'");
  $call=  mysqli_prepare($con, 'CALL UpdatePassword(?,?)');
